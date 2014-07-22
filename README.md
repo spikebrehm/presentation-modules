@@ -118,8 +118,10 @@ module.exports = function() {
 ```js
 // shoutify.js
 
-define(function(str) {
-  return str.toUpperCase() + '!!!';
+define(function() {
+  return function(str) {
+    return str.toUpperCase() + '!!!';
+  };
 });
 ```
 	
@@ -127,7 +129,9 @@ define(function(str) {
 // do_the_thing.js
    
 define(['./shoutify'], function(shoutify) {
-  shoutify('Hello there');
+  return function() {
+    shoutify('Hello there');
+  };
 });
 ```
 
