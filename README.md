@@ -69,6 +69,68 @@
 
 * Part of the almost-ratified EcmaScript 6 spec.
 
+### Syntax (copied from square/es6-module-transpiler)
+
+This syntax is in flux and is closely tracking the module work being
+done by TC39.
+
+### Named Exports
+
+There are two types of exports. *Named exports* like the following:
+
+```javascript
+// foobar.js
+var foo = 'foo', bar = 'bar';
+
+export { foo, bar };
+```
+
+This module has two named exports, `foo` and `bar`.
+
+You can also write this form as:
+
+```javascript
+// foobar.js
+export var foo = 'foo';
+export var bar = 'bar';
+```
+
+Either way, another module can then import your exports like so:
+
+```js
+import { foo, bar } from 'foobar';
+
+console.log(foo);  // 'foo'
+```
+
+### Default Exports
+
+You can also export a *default* export. For example, an ES6ified jQuery might
+look like this:
+
+```javascript
+// jquery.js
+var jQuery = function() {};
+
+jQuery.prototype = {
+  // ...
+};
+
+export default jQuery;
+```
+
+Then, an app that uses jQuery could import it with:
+
+```javascript
+import $ from 'jquery';
+```
+
+The default export of the "jquery" module is now aliased to `$`.
+
+A default export makes the most sense as a module's "main" export, like the
+`jQuery` object in jQuery. You can use default and named exports in parallel.
+
+
 ### Transpilation
 
 * https://github.com/square/es6-module-transpiler
