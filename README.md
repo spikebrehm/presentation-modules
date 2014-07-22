@@ -88,7 +88,6 @@ up dependencies into optimally sized chunks of code for optimal file size and ca
 ```js
 // shoutify.js
 
-
 module.exports = function(str) {
   return str.toUpperCase() + '!!!';
 };	
@@ -122,6 +121,7 @@ module.exports = function() {
 define(function(str) {
   return str.toUpperCase() + '!!!';
 });
+```
 	
 ```js
 // do_the_thing.js
