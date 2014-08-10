@@ -71,12 +71,11 @@ Invoked Function Expression):
 }();
 ```
 
-Modules are essentially wrapped in closure functions, so you would have to explicitly assign variables
-to the global scope.
+When using a module system, under the hood module code is wrapped in closure functions, so you would have to explicitly assign variables to the global scope.
 
 ### Static analysis
 
-As a side effect of explicit dependencies, we can use static dependencies to do all sorts of cool things,
+As a side effect of explicit dependencies, we can use static analysis to do all sorts of cool things,
 like build dependency graphs for understanding when dead code becomes "orphaned", programatically chunking
 up dependencies into optimally sized chunks of code for optimal file size and caching, etc.
 
